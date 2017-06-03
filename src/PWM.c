@@ -19,7 +19,12 @@ void PWM_Init()
 	__HAL_RCC_TIM3_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
+	GPIO_InitStructure.Pin = GPIO_PIN_9;
+	GPIO_InitStructure.Mode   = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStructure.Pull   = GPIO_NOPULL;
+	GPIO_InitStructure.Speed  = GPIO_SPEED_FREQ_HIGH;
 
+	HAL_GPIO_Init(GPIOB,&GPIO_InitStructure);
 }
 
 
