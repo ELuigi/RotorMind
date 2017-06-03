@@ -1,0 +1,16 @@
+.metadata
+bin/
+tmp/
+Debug/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
