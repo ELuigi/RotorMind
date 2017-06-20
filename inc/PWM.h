@@ -7,8 +7,15 @@
 
 #include "stm32f1xx_hal.h"
 
+	// Structures for configuration
+	TIM_HandleTypeDef htim3;
+
+	//TIM_OC_InitTypeDef OcConfig;
+	//GPIO_InitTypeDef GPIO_InitStruct;
 
 void PWM_Init();
+
+void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_base);
 
 #ifdef __cplusplus
 }
