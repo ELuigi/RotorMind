@@ -29,7 +29,7 @@ int main(void)
 	PWM_Init();
 	HAL_TIM_PWM_MspInit(&htim3);
 
-	//LED_Init();
+	LED_Init();
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
 
@@ -47,8 +47,8 @@ void blinkThread(void const *argument) {
 	uint16_t dutyCycle = HAL_TIM_ReadCapturedValue(&htim3, TIM_CHANNEL_1);
 
 	while(1) {
-	//LED_Toggle();
-	//osDelay(50);
+	LED_Toggle();
+	osDelay(50);
 
 	    while(dutyCycle < __HAL_TIM_GET_AUTORELOAD(&htim3))
 	    {

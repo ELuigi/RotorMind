@@ -18,8 +18,8 @@ typedef enum
 
 #define LED                             1
 
-#define LED_PIN                         GPIO_PIN_3
-#define LED_GPIO_PORT                   GPIOB
+#define LED_PIN                         GPIO_PIN_0
+#define LED_GPIO_PORT                   GPIOC
 #define LED_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOB_CLK_ENABLE()
 #define LED_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOB_CLK_DISABLE()
 

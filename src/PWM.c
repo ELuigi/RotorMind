@@ -60,6 +60,7 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_base) {
 
   if(htim_base->Instance==TIM3) {
     __TIM3_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
 
     /**TIM3 GPIO Configuration
     PA6     ------> TIM3_CH1
