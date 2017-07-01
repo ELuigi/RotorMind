@@ -7,11 +7,12 @@
 
 #include "stm32f1xx_hal.h"
 
-
+/* moved in hardware file
 #define LED_PIN                         GPIO_PIN_0
 #define LED_GPIO_PORT                   GPIOC
 #define LED_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOC_CLK_ENABLE()
 #define LED_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOC_CLK_DISABLE()
+*/
 
 /*
 #define LED_PIN                         GPIO_PIN_9

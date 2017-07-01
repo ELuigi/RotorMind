@@ -6,6 +6,7 @@
  */
 
 #include "LED.h"
+#include "hardware.h"
 
 
 //GPIO_TypeDef* LED__PORT = {LED_GPIO_PORT};
@@ -37,6 +38,7 @@ void LED_DeInit()
   HAL_GPIO_WritePin(LED_GPIO_PORT,LED_PIN, GPIO_PIN_RESET);
   /* DeInit the GPIO_LED pin */
   HAL_GPIO_DeInit(LED_GPIO_PORT, LED_PIN);
+  LED_GPIO_CLK_DISABLE();
 }
 
 void LED_On()
