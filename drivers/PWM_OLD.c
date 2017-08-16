@@ -8,9 +8,11 @@
 #include "PWM.h"
 #include <stdio.h>
 #include "stm32f1xx.h"
+#include "hardware.h"
 
-void PWM_Init()
+/*void PWM_Init()
 {
+
 
 	TIM_OC_InitTypeDef sConfigOC;
 
@@ -25,6 +27,13 @@ void PWM_Init()
 	  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
 	  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
 	  HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1);
+}*/
+
+void PWM_Init(TIM_TypeDef * tim , uint32_t channel[])
+{
+	TIM_OC_InitTypeDef sConfigOC;
+
+
 }
 
 void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_base) {

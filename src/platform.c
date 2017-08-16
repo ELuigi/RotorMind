@@ -10,3 +10,12 @@
 #include "platform.h"
 
 
+ void init_platform()
+ {
+	 //INIT LED
+
+	 //INIT PWM
+
+
+ }
+
