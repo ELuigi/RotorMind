@@ -10,10 +10,12 @@
 
 
 #include "stm32f1xx.h"
-//#include "stm32f1xx_nucleo.h"
+
 #include "LED.h"
-#include "PWM.h"
+
 #include "cmsis_os.h"
+
+#include "platform.h"
 			
 void blinkThread(void const *argument);
 
@@ -22,15 +24,16 @@ int main(void)
 {
 
 	osThreadId blinkTID;
+	statusLedConfig_t *statusLedConfig;
+	statusLedConfig->ioTags =IO_TAG(LED0_PIN);
+	statusLedConfig->inversion=0;
 
 
 
 	HAL_Init();
-	PWM_Init();
-	HAL_TIM_PWM_MspInit(&htim3);
 
-	LED_Init();
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+
+	ledInit(statusLedConfig);
 
 
 	osThreadDef(blink, blinkThread, osPriorityNormal, 0, 100);
@@ -44,23 +47,10 @@ int main(void)
 
 void blinkThread(void const *argument) {
 
-	uint16_t dutyCycle = HAL_TIM_ReadCapturedValue(&htim3, TIM_CHANNEL_1);
 
 	while(1) {
-	LED_Toggle();
+	ledToggle(0);
 	osDelay(50);
-
-	    while(dutyCycle < __HAL_TIM_GET_AUTORELOAD(&htim3))
-	    {
-       __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, ++dutyCycle);
-       ++dutyCycle;
-	       HAL_Delay(1);
-	    }
-
-	     while(dutyCycle > 0) {
-	       __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, --dutyCycle);
-	       HAL_Delay(1);
-	     }
 
 
 	}
